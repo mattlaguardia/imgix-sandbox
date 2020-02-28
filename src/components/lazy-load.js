@@ -1,7 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-
-const ONE_PX_PNG =
-	'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+import Imgix from 'react-imgix';
 
 const LazyLoadImage = ({
     src,
@@ -9,7 +7,6 @@ const LazyLoadImage = ({
     placeholderSrc,
     threshold,
     onVisibilityChange,
-    ...otherProps
   }) => {
     const rootRef = useRef();
     const [isVisible, setIsVisible] = useState(visibleByDefault);
@@ -28,9 +25,9 @@ const LazyLoadImage = ({
 				checkIntersections,
 				{
           threshold: 0,
-					rootMargin: '0px',
+					rootMargin: '500px',
 				}
-			);
+      );
 			newIntersectionObserver.observe(rootRef.current);
 			return () => newIntersectionObserver.disconnect();
 		}
@@ -43,13 +40,23 @@ const LazyLoadImage = ({
   }, [isVisible, onVisibilityChange]);
 
 	return (
-		<img height="600px" ref={rootRef} src={isVisible ? src : placeholderSrc} {...otherProps} alt="text" />
+    <div height='600px' ref={rootRef}>
+      <Imgix
+          ref={rootRef}
+          src={isVisible ? src : placeholderSrc}
+          width={600}
+          height={600}
+          htmlAttributes={{
+            alt: "Super Informative Alt Tag"
+          }}
+        />
+    </div>
 	);
 };
 
 LazyLoadImage.defaultProps = {
 	visibleByDefault: false,
-	placeholderSrc: ONE_PX_PNG,
+	placeholderSrc: 'https://assets.imgix.net/examples/pione.jpg?q=1&blur=50',
 	threshold: 100,
 };
 

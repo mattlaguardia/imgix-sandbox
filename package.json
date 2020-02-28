@@ -10,8 +10,7 @@
     "react-dom": "^16.12.0",
     "react-imgix": "^9.0.1",
     "react-scripts": "3.4.0",
-    "react-snap": "^1.23.0",
-    "react-waypoint": "^9.0.2"
+    "react-snap": "^1.23.0"
   },
   "scripts": {
     "start": "react-scripts start",

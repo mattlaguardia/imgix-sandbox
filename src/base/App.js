@@ -13,7 +13,6 @@ function App() {
         margin: 'auto',
         marginBottom: '15px'
       }}
-      alt='images'
     />
   ))
 
