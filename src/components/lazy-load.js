@@ -42,7 +42,6 @@ const LazyLoadImage = ({
 	return (
     <div height='600px' ref={rootRef}>
       <Imgix
-          ref={rootRef}
           src={isVisible ? src : placeholderSrc}
           width={600}
           height={600}
