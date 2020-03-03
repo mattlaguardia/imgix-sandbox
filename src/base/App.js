@@ -1,26 +1,15 @@
 import React from 'react';
-import LazyLoadImage from '../components/lazy-load'
+import LazyImage from '../components/lazy-image'
 import imageArray from '../images/images'
 import './App.css';
 
 const App = () => {
-  const images = imageArray.map((item, key) => (
-    <LazyLoadImage
-      key={key}
-      src={item}
-      style={{
-        display: 'block',
-        margin: 'auto',
-        marginBottom: '15px'
-      }}
-      visibleByDefault={false}
-    />
-  ))
-
   return (
     <div className="App">
       Hello React Sandbox
-      {images}
+      { imageArray.map((item, key) =>
+        <LazyImage src={item} key={key} />
+      )}
     </div>
   );
 }
