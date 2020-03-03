@@ -20,12 +20,12 @@ const LazyImage = ({src}) => {
       });
     };
 
-		if (!isVisible) {
-			const newIO = new IntersectionObserver(checkIntersections, defaultIntersectionOptions);
-      newIO.observe(rootRef.current);
-			return () => newIO.disconnect();
-		}
-	}, [isVisible]);
+      if (!isVisible) {
+        const newIO = new IntersectionObserver(checkIntersections, defaultIntersectionOptions);
+        newIO.observe(rootRef.current);
+        return () => newIO.disconnect();
+      }
+    }, [isVisible]);
 
 	return (
     <Imgix
