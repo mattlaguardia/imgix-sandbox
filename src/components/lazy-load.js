@@ -4,12 +4,15 @@ import Imgix from 'react-imgix';
 const LazyLoadImage = ({
     src,
     visibleByDefault,
-    placeholderSrc,
-    threshold,
     onVisibilityChange,
   }) => {
     const rootRef = useRef();
     const [isVisible, setIsVisible] = useState(visibleByDefault);
+    const placeholderSrc = 'https://assets.imgix.net/examples/pione.jpg?q=1&blur=50';
+    const defaultIntersectionOptions = {
+        threshold: 0,
+        rootMargin: '500px',
+      }
 
 	useEffect(() => {
     const checkIntersections = entries => {
@@ -21,42 +24,27 @@ const LazyLoadImage = ({
     };
 
 		if (!isVisible) {
-			const newIntersectionObserver = new IntersectionObserver(
-				checkIntersections,
-				{
-          threshold: 0,
-					rootMargin: '500px',
-				}
-      );
-			newIntersectionObserver.observe(rootRef.current);
-			return () => newIntersectionObserver.disconnect();
+			const newIO = new IntersectionObserver(checkIntersections, defaultIntersectionOptions);
+      newIO.observe(rootRef.current);
+			return () => newIO.disconnect();
 		}
 	}, [isVisible]);
 
   useEffect(() => {
-		if (isVisible) {
-			onVisibilityChange && onVisibilityChange();
-		}
+		if (isVisible) onVisibilityChange && onVisibilityChange();
   }, [isVisible, onVisibilityChange]);
 
 	return (
-    <div height='600px' ref={rootRef}>
-      <Imgix
-          src={isVisible ? src : placeholderSrc}
-          width={600}
-          height={600}
-          htmlAttributes={{
-            alt: "Super Informative Alt Tag"
-          }}
-        />
-    </div>
+    <Imgix
+        src={isVisible ? src : placeholderSrc}
+        width={600}
+        height={600}
+        htmlAttributes={{
+          alt:"Super Informative Alt Tag",
+          ref: rootRef
+        }}
+      />
 	);
-};
-
-LazyLoadImage.defaultProps = {
-	visibleByDefault: false,
-	placeholderSrc: 'https://assets.imgix.net/examples/pione.jpg?q=1&blur=50',
-	threshold: 100,
 };
 
 export default LazyLoadImage;
