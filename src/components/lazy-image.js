@@ -6,7 +6,7 @@ const LazyImage = ({src}) => {
   const [isVisible, setIsVisible] = useState(false);
   const loading = 'https://gif.imgix.net/imgix-logo-ani.gif?fm=jpg&fit=crop&frame=3';
 
-	useEffect(() => {
+  useEffect(() => {
     const defaultIntersectionOptions = {
       threshold: 0,
       rootMargin: '500px',
@@ -37,7 +37,7 @@ const LazyImage = ({src}) => {
         ref: rootRef
       }}
     />
-	);
+  );
 };
 
 export default LazyImage;
