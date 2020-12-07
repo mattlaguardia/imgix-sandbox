@@ -7,6 +7,7 @@
   - Nice to have but not necessary:
     - imgix account with images in your bucket to use / pull from
     - working knowledge of React
+    - Knowledge of intersection observer: https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver
 
 ## The importance of lazy loading
 Lazy loading helps the initial load of websites and applications by deferring non-critical resource calls on page load. What constitutes as a "non-critical" resource? In this case, multimedia (images) that are "below the fold" or out of the current browser's window. What does lazy loading images that mean for users? It means faster load(s) and in turn a better user experience, or better delivery of content. If you are interested in learning more you can read about it here https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/.
@@ -27,7 +28,7 @@ Lazy loading helps the initial load of websites and applications by deferring no
 ## Adding Functionality
 Now that everything is set up, let's get to building! First, we will create the root element that React will use to render. We'll also add some starter code, to check that the configuration is working correctly.
 
-![CodePen Addign Functionality](https://assets.imgix.net/codepen/codepen-4.png?w=600)
+![CodePen Adding Functionality](https://assets.imgix.net/codepen/codepen-4.png?w=600)
 
 Next, let us get some images in our pen. We'll just be using a simple array of images (we have 25 in our bucket). You can get images any way you want / via an API, statically, or just create a repeater(we'll be using this). But feel free to set up your project however you feel fit. We can iterate over the array with a map method in react and append `<img>` tags to the page. We should also add width to our images so they aren't crazy large and take over the window. For now, let us just add width to the `<img>` tag.
 
