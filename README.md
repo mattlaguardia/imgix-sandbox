@@ -11,7 +11,7 @@
 ## The importance of lazy loading
 Lazy loading helps the initial load of websites and applications by deferring non-critical resource calls on page load. What constitutes as a "non-critical" resource? In this case, multimedia (images) that are "below the fold" or out of the current browser's window. What does lazy loading images that mean for users? It means faster load(s) and in turn a better user experience, or better delivery of content. If you are interested in learning more you can read about it here https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/.
 
-## Setting up our project
+## Setting up our project for CodePen
   - CodePen set up
 
   ![CodePen Project](https://assets.imgix.net/codepen/codepen-1.png?w=600)
