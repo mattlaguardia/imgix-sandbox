@@ -40,5 +40,3 @@ Now that we have some basic functionality on our page, let's start building our 
 ![CodePen Adding Functionality](https://assets.imgix.net/codepen/codepen-7.png?w=400)
 
 **Notice**: `<img>` has switched to `<LazyImage />`. This is so we can reuse our component in different parts of the application. The CodePen should now just be a bunch of urls. Lets Fix this and add an `<img>` tag to the LazyImage component.
-
-![CodePen Adding Functionality](https://assets.imgix.net/codepen/codepen-8.png?w=600)
